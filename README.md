@@ -1,2 +1,2 @@
-# Typescript-ATV-Tecnicas-de-Programacao
-Atividades de Técnicas de Programação II em Typescript.
+# TypeCcript ATV Tecnicas de Programacao II
+Atividades de Técnicas de Programação II em TypeScript.
