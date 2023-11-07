@@ -1,25 +1,37 @@
-import Cliente from "../modelos/cliente";
-import Endereco from "../modelos/endereco";
-let cliente = new Cliente()
-cliente.nome = `Pedro de Alcântara João Carlos Leopoldo Salvador`
-cliente.dataCadastro = new Date(1840, 6, 23)
-cliente.dataNascimento = new Date(1825, 11, 2)
-let endereco = new Endereco()
-endereco.rua = `R. do Catete`
-endereco.bairro = `Copacabana`
-endereco.cidade = `Rio de Janeiro`
-endereco.estado = `Rio de Janeiro`
-endereco.pais = `Brasil`
-endereco.codigoPostal = `22220-000`
-cliente.endereco = endereco
+import Entrada from "./entrada";
+import ClienteController from "../controller/clienteController";
 
-let dependente = new Cliente()
-dependente.nome = `Isabel Cristina Leopoldina Augusta Micaela`
-dependente.dataCadastro = new Date(1921, 10, 14)
-dependente.dataNascimento = new Date(1846, 6, 29)
-dependente.endereco = (cliente.endereco.clonar() as Endereco)
-dependente.titular = cliente
-cliente.dependentes.push(dependente)
+function menu() {
+    const clienteController = new ClienteController();
+    while (true) {
+        console.log("*********** BEM VINDO AO ATLANTIS! ***********")
+        console.log("Menu:");
+        console.log("1. Cadastrar Cliente");
+        console.log("2. Cadastrar Dependentes");
+        console.log("3. Listar Clientes");
+        console.log("4. Sair");
+        console.log("------------------------------------------------")
+        const entrada = new Entrada();
+        const escolha = entrada.receberNumero("Digite o número com a opção desejada ");
 
-console.log(cliente);
-console.log(dependente);
+        switch (escolha) {
+            case 1:
+                clienteController.cadastrarCliente();
+                break;
+            case 2:
+                clienteController.cadastrarDependentes();
+                break;
+            case 3:
+                clienteController.listarClientes();
+                break;
+            case 4:
+                console.log("Saindo do programa.");
+                return;
+            default:
+                console.log("Opção inválida. Tente novamente.");
+                break;
+        }
+    }
+}
+
+menu();
