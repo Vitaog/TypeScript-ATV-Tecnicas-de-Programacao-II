@@ -4,7 +4,6 @@ import Telefone from "./telefone"
 
 export default class Cliente {
     public nome: string
-    public nomeSocial: string
     public dataNascimento: Date
     public dataCadastro: Date
     public telefones: Telefone[] = []
