@@ -2,6 +2,7 @@ import { TipoDocumento } from "../enumeracoes/tipoDocumento";
 import Cliente from "../modelos/cliente";
 import Documento from "../modelos/documento";
 import Endereco from "../modelos/endereco";
+import Telefone from "../modelos/telefone";
 import Entrada from "../teste/entrada";
 
 export default class ClienteController {
@@ -57,25 +58,29 @@ export default class ClienteController {
         console.log("Cadastrar Dependentes");
         const clienteId = this.entrada.receberNumero("Digite o ID do cliente que deseja adicionar dependente");
         const cliente = this.clientes.find((c) => c.titular === null && c.id === clienteId);
-
+    
         if (!cliente) {
             console.log("Cliente não encontrado ou não é um titular.");
             return;
         }
-
+    
         const dependente = new Cliente();
-
+    
         dependente.nome = this.entrada.receberTexto("Digite o nome do dependente");
         dependente.dataCadastro = new Date();
         dependente.dataNascimento = this.entrada.receberData("Digite a data de nascimento do dependente");
+    
+        dependente.endereco = cliente.endereco.clonar() as Endereco;
+        dependente.telefones = cliente.telefones.map((telefone) => telefone.clonar() as Telefone);
 
-        dependente.endereco = cliente.endereco;
         dependente.titular = cliente;
-
+    
         cliente.dependentes.push(dependente);
-
+    
         console.log("Dependente cadastrado com sucesso!");
+        console.log(dependente);
     }
+    
 
     listarClientes() {
         console.log("Lista de Clientes");
@@ -85,10 +90,10 @@ export default class ClienteController {
             console.log(`Data de Nascimento: ${cliente.dataNascimento.toLocaleDateString()}`);
             
             if (cliente.titular) {
-                console.log("Tipo: Titular");
-            } else {
                 console.log("Tipo: Dependente");
                 console.log(`Titular: ${cliente.titular?.nome}`);
+            } else {
+                console.log("Tipo: Titular");
             }
     
             if (cliente.documentos.length > 0) {

@@ -11,9 +11,10 @@ export default class Cliente {
     public endereco: Endereco
     public documentos: Documento[] = []
     public dependentes: Cliente[] = []
-    public titular: Cliente
+    public titular: Cliente | null
 
     constructor() {
         this.id = 0;
+        this.titular = null;
     }
 }
