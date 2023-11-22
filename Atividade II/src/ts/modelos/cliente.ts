@@ -3,6 +3,7 @@ import Endereco from "./endereco"
 import Telefone from "./telefone"
 
 export default class Cliente {
+    private id: number;
     private nome: string
     private nomeSocial: string
     private dataNascimento: Date
@@ -13,13 +14,15 @@ export default class Cliente {
     private dependentes: Cliente[] = []
     private titular!: Cliente
 
-    constructor(nome: string, nomeSocial: string, dataNascimento: Date) {
+    constructor(id:number, nome: string, nomeSocial: string, dataNascimento: Date) {
+        this.id = id
         this.nome = nome
         this.nomeSocial = nomeSocial
         this.dataNascimento = dataNascimento
         this.dataCadastro = new Date()
     }
 
+    public get Id() { return this.id; }
     public get Nome() { return this.nome }
     public get NomeSocial() { return this.nomeSocial }
     public get DataNascimento() { return this.dataNascimento }
