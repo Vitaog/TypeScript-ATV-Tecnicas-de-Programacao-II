@@ -22,7 +22,11 @@ export default class CadastroClienteDependente extends Processo {
     }
 
     private titular(cliente: Cliente): boolean {
-        return cliente.Dependentes.length === 0;
+        let verificacao = false
+        if (cliente.Titular == undefined) {
+            verificacao = true
+        }
+        return verificacao
     }
 
     private obterTitularPorId(id: number): Cliente | undefined {

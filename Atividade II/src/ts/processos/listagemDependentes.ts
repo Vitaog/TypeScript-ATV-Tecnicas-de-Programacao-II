@@ -5,26 +5,44 @@ import Impressor from "../interfaces/impressor";
 import Cliente from "../modelos/cliente";
 
 export default class ListagemDependentes extends Processo {
-    private clientes: Cliente[];
     private impressor!: Impressor;
 
     constructor() {
         super();
-        this.clientes = Armazem.InstanciaUnica.Clientes;
+    }
+
+    private listarTitulares(): Cliente[] {
+        console.log('Clientes Titulares Disponíveis:');
+        const titulares = Armazem.InstanciaUnica.Clientes.filter(cliente => cliente.Titular === undefined);
+        titulares.forEach(cliente => {
+            console.log(`ID: ${cliente.Id} - Nome: ${cliente.Nome}`);
+        });
+        return titulares;
     }
 
     processar(): void {
         console.clear();
         console.log('Iniciando a listagem dos clientes dependentes...');
-        this.clientes.forEach(cliente => {
-            if (!this.titular(cliente)) {
-                this.impressor = new ImpressaorCliente(cliente);
-                console.log(this.impressor.imprimir());
-            }
-        });
-    }
 
-    private titular(cliente: Cliente): boolean {
-        return cliente.Titular === undefined;
+        const titulares = this.listarTitulares();
+
+        if (titulares.length === 0) {
+            console.log('Não há titulares disponíveis.');
+            return;
+        }
+
+        const titularId = this.entrada.receberNumero('Selecione o ID do cliente titular:');
+        const titularSelecionado = titulares.find(cliente => cliente.Id === titularId);
+
+        if (!titularSelecionado) {
+            console.log('Titular não encontrado.');
+            return;
+        }
+
+        const dependentes = titularSelecionado.Dependentes;
+        dependentes.forEach(dependente => {
+            this.impressor = new ImpressaorCliente(dependente);
+            console.log(this.impressor.imprimir());
+        });
     }
 }
