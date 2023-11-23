@@ -19,12 +19,13 @@ export default class Cliente {
         return Cliente.proximoId++;
     }
 
-    constructor(id:number | null, nome: string, nomeSocial: string, dataNascimento: Date) {
+    constructor(id:number | null, nome: string, nomeSocial: string, dataNascimento: Date, titular?: Cliente) {
         this.id = id !== null ? id: Cliente.obterProximoId();
         this.nome = nome
         this.nomeSocial = nomeSocial
         this.dataNascimento = dataNascimento
         this.dataCadastro = new Date()
+        this.titular = titular!;
     }
 
     public get Id() { return this.id; }

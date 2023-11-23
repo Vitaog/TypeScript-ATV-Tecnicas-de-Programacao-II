@@ -43,7 +43,7 @@ export default class CadastroClienteDependente extends Processo {
             let nomeSocial = this.entrada.receberTexto('Qual o nome social do novo cliente dependente?');
             let dataNascimento = this.entrada.receberData('Qual a data de nascimento do novo cliente dependente?');
 
-            let clienteDependente = new Cliente(null, nome, nomeSocial, dataNascimento);
+            let clienteDependente = new Cliente(null, nome, nomeSocial, dataNascimento,this.clienteTitular);
             clienteDependente.Endereco = this.clienteTitular.Endereco?.clonar() as Endereco;
 
             let telefonesTitular = this.clienteTitular.Telefones.forEach(telefone => {
