@@ -2,6 +2,7 @@ import Processo from "../abstracoes/processo";
 import Armazem from "../dominio/armazem";
 import Cliente from "../modelos/cliente";
 import Endereco from "../modelos/endereco";
+import Telefone from "../modelos/telefone";
 import CadastrarDocumentosCliente from "./cadastrarDocumentosCliente";
 
 export default class CadastroClienteDependente extends Processo {
@@ -45,6 +46,10 @@ export default class CadastroClienteDependente extends Processo {
             let clienteDependente = new Cliente(null, nome, nomeSocial, dataNascimento);
             clienteDependente.Endereco = this.clienteTitular.Endereco?.clonar() as Endereco;
 
+            let telefonesTitular = this.clienteTitular.Telefones.forEach(telefone => {
+                clienteDependente.Telefones.push(telefone.clonar() as Telefone);
+            })
+            
             this.processo = new CadastrarDocumentosCliente(clienteDependente);
             this.processo.processar();
 
