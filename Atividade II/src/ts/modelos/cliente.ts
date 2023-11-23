@@ -13,9 +13,14 @@ export default class Cliente {
     private documentos: Documento[] = []
     private dependentes: Cliente[] = []
     private titular!: Cliente
+    private static proximoId = 1;
 
-    constructor(id:number, nome: string, nomeSocial: string, dataNascimento: Date) {
-        this.id = id
+    private static obterProximoId(): number {
+        return Cliente.proximoId++;
+    }
+
+    constructor(id:number | null, nome: string, nomeSocial: string, dataNascimento: Date) {
+        this.id = id !== null ? id: Cliente.obterProximoId();
         this.nome = nome
         this.nomeSocial = nomeSocial
         this.dataNascimento = dataNascimento
