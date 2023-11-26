@@ -1,7 +1,7 @@
 import Processo from "../abstracoes/processo";
 import MenuTipoEditarCliente from "../menus/menuTipoEditarCliente";
+import EditarClienteDependente from "./editarDependentes";
 import EditarClienteTitular from "./editarTitular";
-import ListagemDependentes from "./listagemDependentesPorTitular";
 
 export default class TipoEditarCliente extends Processo {
     constructor(){
@@ -18,7 +18,7 @@ export default class TipoEditarCliente extends Processo {
                 this.processo.processar()
                 break;
             case 2:
-                this.processo = new ListagemDependentes()
+                this.processo = new EditarClienteDependente()
                 this.processo.processar()
                 break;
             default:
