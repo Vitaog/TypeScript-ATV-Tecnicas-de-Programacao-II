@@ -1,5 +1,6 @@
 import Processo from "../abstracoes/processo";
 import Cliente from "../modelos/cliente";
+import Endereco from "../modelos/endereco";
 
 export default class EditarEnderecoTitular extends Processo {
     private cliente: Cliente;
@@ -7,6 +8,12 @@ export default class EditarEnderecoTitular extends Processo {
     constructor(cliente: Cliente) {
         super();
         this.cliente = cliente;
+    }
+
+    private atualizarEnderecoDependentes(novoEndereco: Endereco): void {
+        this.cliente.Dependentes.forEach(dependente => {
+            dependente.Endereco = novoEndereco.clonar() as Endereco;
+        });
     }
 
     processar(): void {
@@ -61,6 +68,8 @@ export default class EditarEnderecoTitular extends Processo {
             if (novoCodigoPostal.trim() !== "") {
                 enderecoAtual.CodigoPostal = novoCodigoPostal;
             }
+
+            this.atualizarEnderecoDependentes(enderecoAtual);
 
             console.log('Edição do endereço concluída.');
         } else {

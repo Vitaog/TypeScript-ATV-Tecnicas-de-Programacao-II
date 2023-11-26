@@ -1,7 +1,7 @@
 import Processo from "../abstracoes/processo";
 import Cliente from "../modelos/cliente";
 import Telefone from "../modelos/telefone";
-import CadastroTelefoneTitular from "./cadastroTelefoneTitular";
+import CadastroTelefoneTitularAoEditar from "./cadastroTelefoneTitularAoEditar";
 
 export default class EditarTelefoneTitular extends Processo {
     private cliente: Cliente;
@@ -22,21 +22,11 @@ export default class EditarTelefoneTitular extends Processo {
         }
     }
 
-    private atualizarTelefonesDependentes(novoTelefone: Telefone): void {
+    private limparTelefonesDependentes(): void {
         this.cliente.Dependentes.forEach(dependente => {
-            const telefoneDependente = dependente.Telefones.find(
-                telefone => telefone.Ddd === novoTelefone.Ddd && telefone.Numero === novoTelefone.Numero
-            );
-    
-            if (telefoneDependente) {
-                telefoneDependente.Numero = novoTelefone.Numero;
-            } else {
-                const novoTelefoneDependente = new Telefone(novoTelefone.Ddd, novoTelefone.Numero);
-                dependente.Telefones.push(novoTelefoneDependente);
-            }
+            dependente.Telefones.length = 0;
         });
     }
-    
 
     processar(): void {
         console.log('Editando os telefones do titular...');
@@ -60,8 +50,15 @@ export default class EditarTelefoneTitular extends Processo {
 
                 if (novoNumero.trim() !== "") {
                     telefoneSelecionado.Numero = novoNumero;
-                    this.atualizarTelefonesDependentes(telefoneSelecionado);
                 }
+
+                this.limparTelefonesDependentes();
+
+                this.cliente.Dependentes.forEach(dependente => {
+                    this.cliente.Telefones.forEach(telefone => {
+                        dependente.Telefones.push(telefone.clonar() as Telefone);
+                    });
+                });
 
                 console.log('Edição do telefone concluída.');
             } else {
@@ -74,7 +71,7 @@ export default class EditarTelefoneTitular extends Processo {
         const cadastrarNovoTelefone = this.entrada.receberTexto('Deseja cadastrar um novo telefone? (S/N)').toUpperCase() === 'S';
 
         if (cadastrarNovoTelefone) {
-            const processoCadastroTelefone = new CadastroTelefoneTitular(this.cliente);
+            const processoCadastroTelefone = new CadastroTelefoneTitularAoEditar(this.cliente);
             processoCadastroTelefone.processar();
         }
     }
