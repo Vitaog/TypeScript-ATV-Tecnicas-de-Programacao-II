@@ -33,7 +33,7 @@ export default class EditarClienteTitular extends Processo {
     }
 
     private titular(cliente: Cliente): boolean {
-        return cliente.Titular === undefined;
+        return cliente.Titular === undefined && !cliente.Excluido;
     }
     
     processar(): void {

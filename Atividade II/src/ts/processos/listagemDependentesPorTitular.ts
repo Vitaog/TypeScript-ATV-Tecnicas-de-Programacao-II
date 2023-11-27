@@ -15,7 +15,9 @@ export default class ListagemDependentes extends Processo {
         console.log('Clientes Titulares Disponíveis:');
         const titulares = Armazem.InstanciaUnica.Clientes.filter(cliente => cliente.Titular === undefined);
         titulares.forEach(cliente => {
-            console.log(`ID: ${cliente.Id} - Nome: ${cliente.Nome}`);
+            if (!cliente.Excluido) {
+                console.log(`ID: ${cliente.Id} - Nome: ${cliente.Nome}`);
+            }
         });
         return titulares;
     }
@@ -39,7 +41,7 @@ export default class ListagemDependentes extends Processo {
             return;
         }
 
-        const dependentes = titularSelecionado.Dependentes;
+        const dependentes = titularSelecionado.Dependentes.filter(dependente => !dependente.Excluido);
         dependentes.forEach(dependente => {
             this.impressor = new ImpressaorCliente(dependente);
             console.log(this.impressor.imprimir());

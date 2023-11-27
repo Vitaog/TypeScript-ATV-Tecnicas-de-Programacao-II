@@ -13,7 +13,7 @@ export default class ListagemTitularPorDependente extends Processo {
 
     private listarDependentes(): Cliente[] {
         console.log('Clientes Dependentes Disponíveis:');
-        const dependentes = Armazem.InstanciaUnica.Clientes.filter(cliente => cliente.Titular !== undefined);
+        const dependentes = Armazem.InstanciaUnica.Clientes.filter(cliente => cliente.Titular !== undefined && !cliente.Excluido);
         dependentes.forEach(cliente => {
             console.log(`ID: ${cliente.Id} - Nome: ${cliente.Nome}`);
         });

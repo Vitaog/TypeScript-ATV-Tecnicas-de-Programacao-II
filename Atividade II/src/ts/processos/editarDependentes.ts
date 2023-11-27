@@ -25,7 +25,9 @@ export default class EditarClienteDependente extends Processo {
     private listarDependentesDoTitular(clienteTitular: Cliente): void {
         console.log(`Dependentes de ${clienteTitular.Nome}:`);
         clienteTitular.Dependentes.forEach(dependente => {
+            if(!dependente.Excluido) {
             console.log(`ID: ${dependente.Id} - Nome: ${dependente.Nome}`);
+            }
         });
     }
 
@@ -39,7 +41,7 @@ export default class EditarClienteDependente extends Processo {
     }
 
     private titular(cliente: Cliente): boolean {
-        return cliente.Titular === undefined;
+        return cliente.Titular === undefined && !cliente.Excluido
     }
 
     processar(): void {

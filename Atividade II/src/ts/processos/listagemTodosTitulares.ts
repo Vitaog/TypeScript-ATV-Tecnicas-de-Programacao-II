@@ -23,7 +23,7 @@ export default class ListagemTitulares extends Processo {
     }
     private titular(cliente: Cliente): boolean {
         let verificacao = false
-        if (cliente.Titular == undefined) {
+        if (cliente.Titular == undefined && !cliente.Excluido) {
             verificacao = true
         }
         return verificacao

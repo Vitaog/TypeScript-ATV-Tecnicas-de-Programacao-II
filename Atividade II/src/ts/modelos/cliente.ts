@@ -13,6 +13,7 @@ export default class Cliente {
     private documentos: Documento[] = []
     private dependentes: Cliente[] = []
     private titular!: Cliente
+    private excluido: boolean = false;
     private static proximoId = 1;
 
     private static obterProximoId(): number {
@@ -38,9 +39,13 @@ export default class Cliente {
     public get Documentos() { return this.documentos }
     public get Dependentes() { return this.dependentes }
     public get Titular() { return this.titular }
+    public get Excluido() { return this.excluido }
 
     public set Endereco(endereco: Endereco) { this.endereco = endereco }
     public set Nome(nome: string) { this.nome = nome; }
     public set NomeSocial(nomeSocial: string) { this.nomeSocial = nomeSocial; }
     
+    public marcarComoExcluido() {
+        this.excluido = true;
+    }
 }

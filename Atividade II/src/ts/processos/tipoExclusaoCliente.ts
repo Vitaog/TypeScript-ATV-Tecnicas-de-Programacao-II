@@ -1,6 +1,6 @@
 import Processo from "../abstracoes/processo";
 import MenuTipoExclusaoCliente from "../menus/menuTipoExclusao";
-import CadastroClienteDependente from "./cadastroClienteDependente";
+import ExclusaoClienteDependente from "./exclusaoClienteDependente";
 import ExclusaoClienteTitular from "./exclusaoClienteTitular";
 
 export default class TipoExclusaoCliente extends Processo {
@@ -18,7 +18,7 @@ export default class TipoExclusaoCliente extends Processo {
                 this.processo.processar()
                 break
             case 2:
-                this.processo = new CadastroClienteDependente();
+                this.processo = new ExclusaoClienteDependente();
                 this.processo.processar()
                 break
             default:
