@@ -3,6 +3,7 @@ import Endereco from "./endereco"
 import Telefone from "./telefone"
 
 export default class Cliente {
+    private id: number;
     private nome: string
     private nomeSocial: string
     private dataNascimento: Date
@@ -12,14 +13,23 @@ export default class Cliente {
     private documentos: Documento[] = []
     private dependentes: Cliente[] = []
     private titular!: Cliente
+    private excluido: boolean = false;
+    private static proximoId = 1;
 
-    constructor(nome: string, nomeSocial: string, dataNascimento: Date) {
+    private static obterProximoId(): number {
+        return Cliente.proximoId++;
+    }
+
+    constructor(id:number | null, nome: string, nomeSocial: string, dataNascimento: Date, titular?: Cliente) {
+        this.id = id !== null ? id: Cliente.obterProximoId();
         this.nome = nome
         this.nomeSocial = nomeSocial
         this.dataNascimento = dataNascimento
         this.dataCadastro = new Date()
+        this.titular = titular!;
     }
 
+    public get Id() { return this.id; }
     public get Nome() { return this.nome }
     public get NomeSocial() { return this.nomeSocial }
     public get DataNascimento() { return this.dataNascimento }
@@ -29,6 +39,13 @@ export default class Cliente {
     public get Documentos() { return this.documentos }
     public get Dependentes() { return this.dependentes }
     public get Titular() { return this.titular }
+    public get Excluido() { return this.excluido }
 
     public set Endereco(endereco: Endereco) { this.endereco = endereco }
+    public set Nome(nome: string) { this.nome = nome; }
+    public set NomeSocial(nomeSocial: string) { this.nomeSocial = nomeSocial; }
+    
+    public marcarComoExcluido() {
+        this.excluido = true;
+    }
 }
