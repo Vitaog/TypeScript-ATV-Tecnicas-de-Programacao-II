@@ -18,7 +18,7 @@ export default class Cliente {
     private excluido: boolean = false;
     private dataHospedagemInicial!: Date
     private dataHospedagemFinal!: Date
-    private acomodacao!: Acomodacao
+    private acomodacao!: Acomodacao 
     private hospedagem! : Hospedagem
     private static proximoId = 1;
 

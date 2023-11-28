@@ -3,8 +3,8 @@ import { TipoHospedagem } from "../enumeracoes/TipoHospedagem"
 export default class Hospedagem {
     private tipo: TipoHospedagem
 
-    constructor(tipo: TipoHospedagem) {
-        this.tipo = tipo
+    constructor(tipo?: TipoHospedagem) {
+        this.tipo = tipo!
     }
 
     public get Tipo(){
