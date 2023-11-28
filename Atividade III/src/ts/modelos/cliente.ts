@@ -1,5 +1,7 @@
+import Acomodacao from "./acomodacao";
 import Documento from "./documento"
 import Endereco from "./endereco"
+import Hospedagem from "./hospedagem";
 import Telefone from "./telefone"
 
 export default class Cliente {
@@ -14,6 +16,10 @@ export default class Cliente {
     private dependentes: Cliente[] = []
     private titular!: Cliente
     private excluido: boolean = false;
+    private dataHospedagemInicial!: Date
+    private dataHospedagemFinal!: Date
+    private acomodacao!: Acomodacao
+    private hospedagem! : Hospedagem
     private static proximoId = 1;
 
     private static obterProximoId(): number {
@@ -40,11 +46,19 @@ export default class Cliente {
     public get Dependentes() { return this.dependentes }
     public get Titular() { return this.titular }
     public get Excluido() { return this.excluido }
+    public get DataHospedagemInicial() { return this.dataHospedagemInicial }
+    public get DataHospedagemFinal() { return this.dataHospedagemFinal }
+    public get Acomodacao() { return this.acomodacao }
+    public get Hospedagem() { return this.hospedagem }
 
     public set Endereco(endereco: Endereco) { this.endereco = endereco }
     public set Nome(nome: string) { this.nome = nome; }
     public set NomeSocial(nomeSocial: string) { this.nomeSocial = nomeSocial; }
-    
+    public set DataHospedagemInicial (dataHospedagemInicial: Date) {this.dataHospedagemInicial = dataHospedagemInicial}
+    public set DataHospedagemFinal (dataHospedagemFinal: Date) {this.dataHospedagemFinal = dataHospedagemFinal}
+    public set Acomodacao (acomodacao: Acomodacao) {this.acomodacao = acomodacao}
+    public set Hospedagem (hospedagem: Hospedagem) {this.hospedagem = hospedagem}
+
     public marcarComoExcluido() {
         this.excluido = true;
     }
