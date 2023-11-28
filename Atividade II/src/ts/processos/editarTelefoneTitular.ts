@@ -73,6 +73,13 @@ export default class EditarTelefoneTitular extends Processo {
         if (cadastrarNovoTelefone) {
             const processoCadastroTelefone = new CadastroTelefoneTitularAoEditar(this.cliente);
             processoCadastroTelefone.processar();
+            this.limparTelefonesDependentes();
+
+                this.cliente.Dependentes.forEach(dependente => {
+                    this.cliente.Telefones.forEach(telefone => {
+                        dependente.Telefones.push(telefone.clonar() as Telefone);
+                    });
+                });
         }
     }
 }
