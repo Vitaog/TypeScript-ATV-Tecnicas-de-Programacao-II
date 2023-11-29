@@ -14,6 +14,12 @@ const CadastroTitular = () => {
     estado: '',
     pais: '',
     codigoPostal: '',
+    cpf: '',
+    dataExpedicaoCPF: '',
+    rg: '',
+    dataExpedicaoRg: '',
+    passaporte: '',
+    dataExpedicaoPassaporte: '',
   });
 
   const handleChange = (e) => {
@@ -32,154 +38,254 @@ const CadastroTitular = () => {
     <div>
       <NavBar />
       <div className="container">
-        <div className="card mx-auto my-5 p-3">
+        <div className="card mx-auto my-5 p-3" style={{ maxHeight: '670px', overflowY: 'auto' }}>
           <h1 className="display-4 text-center">Cadastro do Titular</h1>
-          <form>
-            <div className="mb-3">
-              <label htmlFor="nome" className="form-label">
-                Nome:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="nome"
-                name="nome"
-                value={formData.nome}
-                onChange={handleChange}
-                placeholder="Digite o nome"
-              />
+          <div className="card mb-4">
+            <div className="card-body">
+              <h5 className="card-title">Informações Pessoais</h5>
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="nome" className="form-label">
+                    Nome:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="nome"
+                    name="nome"
+                    value={formData.nome}
+                    onChange={handleChange}
+                    placeholder="Digite o nome"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="nomeSocial" className="form-label">
+                    Nome Social:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="nomeSocial"
+                    name="nomeSocial"
+                    value={formData.nomeSocial}
+                    onChange={handleChange}
+                    placeholder="Digite o nome social"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="dataNascimento" className="form-label">
+                    Data de Nascimento:
+                  </label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="dataNascimento"
+                    name="dataNascimento"
+                    value={formData.dataNascimento}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="telefone" className="form-label">
+                    Telefone:
+                  </label>
+                  <input
+                    type="tel"
+                    className="form-control"
+                    id="telefone"
+                    name="telefone"
+                    value={formData.telefone}
+                    onChange={handleChange}
+                    placeholder="(XX) XXXXXXXXX"
+                  />
+                </div>
+              </form>
             </div>
-            <div className="mb-3">
-              <label htmlFor="nomeSocial" className="form-label">
-                Nome Social:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="nomeSocial"
-                name="nomeSocial"
-                value={formData.nomeSocial}
-                onChange={handleChange}
-                placeholder="Digite o nome social"
-              />
+          </div>
+          <div className="card mb-4">
+            <div className="card-body">
+              <h5 className="card-title">Documentos</h5>
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="cpf" className="form-label">
+                    CPF:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cpf"
+                    name="cpf"
+                    value={formData.cpf}
+                    onChange={handleChange}
+                    placeholder="Digite o CPF"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="dataExpedicaoRg" className="form-label">
+                    Data de Expedição do CPF:
+                  </label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="dataExpedicaoCPF"
+                    name="dataExpedicaoCPF"
+                    value={formData.dataExpedicaoCPF}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="rg" className="form-label">
+                    RG:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="rg"
+                    name="rg"
+                    value={formData.rg}
+                    onChange={handleChange}
+                    placeholder="Digite o RG"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="dataExpedicaoRg" className="form-label">
+                    Data de Expedição do RG:
+                  </label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="dataExpedicaoRg"
+                    name="dataExpedicaoRg"
+                    value={formData.dataExpedicaoRg}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="passaporte" className="form-label">
+                    Passaporte:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="passaporte"
+                    name="passaporte"
+                    value={formData.passaporte}
+                    onChange={handleChange}
+                    placeholder="Digite o número do Passaporte"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="dataExpedicaoPassaporte" className="form-label">
+                    Data de Expedição do Passaporte:
+                  </label>
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="dataExpedicaoPassaporte"
+                    name="dataExpedicaoPassaporte"
+                    value={formData.dataExpedicaoPassaporte}
+                    onChange={handleChange}
+                  />
+                </div>
+              </form>
             </div>
-            <div className="mb-3">
-              <label htmlFor="dataNascimento" className="form-label">
-                Data de Nascimento:
-              </label>
-              <input
-                type="date"
-                className="form-control"
-                id="dataNascimento"
-                name="dataNascimento"
-                value={formData.dataNascimento}
-                onChange={handleChange}
-              />
+          </div>
+          <div className="card mb-4">
+            <div className="card-body">
+              <h5 className="card-title">Endereço</h5>
+              <form>
+                <div className="mb-3">
+                  <label htmlFor="rua" className="form-label">
+                    Rua:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="rua"
+                    name="rua"
+                    value={formData.rua}
+                    onChange={handleChange}
+                    placeholder="Digite a rua"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="bairro" className="form-label">
+                    Bairro:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="bairro"
+                    name="bairro"
+                    value={formData.bairro}
+                    onChange={handleChange}
+                    placeholder="Digite o bairro"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="cidade" className="form-label">
+                    Cidade:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="cidade"
+                    name="cidade"
+                    value={formData.cidade}
+                    onChange={handleChange}
+                    placeholder="Digite a cidade"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="estado" className="form-label">
+                    Estado:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="estado"
+                    name="estado"
+                    value={formData.estado}
+                    onChange={handleChange}
+                    placeholder="Digite o estado"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="pais" className="form-label">
+                    País:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="pais"
+                    name="pais"
+                    value={formData.pais}
+                    onChange={handleChange}
+                    placeholder="Digite o país"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="codigoPostal" className="form-label">
+                    Código Postal:
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="codigoPostal"
+                    name="codigoPostal"
+                    value={formData.codigoPostal}
+                    onChange={handleChange}
+                    placeholder="Digite o código postal"
+                  />
+                </div>
+              </form>
             </div>
-            <div className="mb-3">
-              <label htmlFor="telefone" className="form-label">
-                Telefone:
-              </label>
-              <input
-                type="tel"
-                className="form-control"
-                id="telefone"
-                name="telefone"
-                value={formData.telefone}
-                onChange={handleChange}
-                placeholder="Digite o telefone"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="rua" className="form-label">
-                Rua:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="rua"
-                name="rua"
-                value={formData.rua}
-                onChange={handleChange}
-                placeholder="Digite a rua"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="bairro" className="form-label">
-                Bairro:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="bairro"
-                name="bairro"
-                value={formData.bairro}
-                onChange={handleChange}
-                placeholder="Digite o bairro"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="cidade" className="form-label">
-                Cidade:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="cidade"
-                name="cidade"
-                value={formData.cidade}
-                onChange={handleChange}
-                placeholder="Digite a cidade"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="estado" className="form-label">
-                Estado:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="estado"
-                name="estado"
-                value={formData.estado}
-                onChange={handleChange}
-                placeholder="Digite o estado"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="pais" className="form-label">
-                País:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="pais"
-                name="pais"
-                value={formData.pais}
-                onChange={handleChange}
-                placeholder="Digite o país"
-              />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="codigoPostal" className="form-label">
-                Código Postal:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="codigoPostal"
-                name="codigoPostal"
-                value={formData.codigoPostal}
-                onChange={handleChange}
-                placeholder="Digite o código postal"
-              />
-            </div>
-            <div className="text-center">
-              <button type="button" className="btn btn-primary" onClick={handleSave}>
-                Salvar
-              </button>
-            </div>
-          </form>
+          </div>
+          <div className="text-center">
+            <button type="button" className="btn btn-primary" onClick={handleSave}>
+              Salvar
+            </button>
+          </div>
         </div>
       </div>
     </div>
