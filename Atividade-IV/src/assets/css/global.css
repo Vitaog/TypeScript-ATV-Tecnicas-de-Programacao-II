@@ -1,0 +1,13 @@
+/* styles.css */
+
+/* Importar o CSS do Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Definir um fundo degradê para o body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: rgba(68, 102, 116, 0.423); /* Degradê de branco para azul claro */
+  margin: 0; /* Remover margens padrão do body */
+  min-height: 100vh; /* Garantir que o degradê cubra toda a altura da viewport */
+}
+

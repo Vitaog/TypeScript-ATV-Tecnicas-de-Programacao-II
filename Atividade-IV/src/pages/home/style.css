@@ -1,0 +1,27 @@
+/* style.css */
+
+.home-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: justify;
+}
+
+.welcome-heading {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.welcome-text {
+    font-size: 1.2rem;
+    color: #000000;
+    text-align: justify;
+}
+
+.img-park {
+    width: 50%; /* Alterado para 100% para ocupar a largura total do container */
+    height: auto;
+    border-radius: 10px;
+}
