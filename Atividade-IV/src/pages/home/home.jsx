@@ -14,10 +14,11 @@ const Home = () => {
             <img className='img-park' src={ImagemPark} alt="Imagem do Atlantis Park" />
           </div>
           <p className="welcome-text">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Explore um mundo de entretenimento aquático inigualável, onde a diversão encontra o calor tropical do Brasil.
+            Explore um mundo de entretenimento aquático inigualável, onde a diversão encontra o calor tropical do Brasil.
             No coração dessa experiência está o Atlantis Park, um oásis de alegria e aventura. Com mais de 20.000 metros quadrados,
             somos o maior parque aquático da América Latina, oferecendo uma atmosfera vibrante para famílias e amigos.
           </p>
+          <p className="welcome-text">Em cada curva do Atlantis Park, você será envolvido por uma atmosfera mágica, onde a alegria contagia e as risadas ecoam. Nossas atrações aquáticas de última geração são cuidadosamente projetadas para despertar a emoção em cada visitante, oferecendo uma experiência aquática que vai além das expectativas.</p>
         </div>
       </div>
     </div>

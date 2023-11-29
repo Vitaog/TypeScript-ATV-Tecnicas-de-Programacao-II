@@ -38,7 +38,7 @@ const CadastroTitular = () => {
     <div>
       <NavBar />
       <div className="container">
-        <div className="card mx-auto my-5 p-3" style={{ maxHeight: '670px', overflowY: 'auto' }}>
+        <div className="card mx-auto my-5 p-3" style={{ maxHeight: '850px', overflowY: 'auto' }}>
           <h1 className="display-4 text-center">Cadastro do Titular</h1>
           <div className="card mb-4">
             <div className="card-body">
