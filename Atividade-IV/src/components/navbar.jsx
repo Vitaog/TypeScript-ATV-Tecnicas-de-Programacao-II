@@ -17,10 +17,10 @@ const NavBar = () => {
               Home
             </Link>
             <NavDropdown title="Cadastro Clientes" id="basic-nav-dropdown">
-              <Link to="/titular" className="dropdown-item">
+              <Link to="/cadastroTitular" className="dropdown-item">
                 Titular
               </Link>
-              <Link to="/dependente" className="dropdown-item">
+              <Link to="/cadastroDependente" className="dropdown-item">
                 Dependente
               </Link>
             </NavDropdown>
