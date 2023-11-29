@@ -16,20 +16,28 @@ const NavBar = () => {
             <Link to="/" className="nav-link">
               Home
             </Link>
-            <NavDropdown title="Cadastro Clientes" id="basic-nav-dropdown">
-              <Link to="/cadastroTitular" className="dropdown-item">
-                Titular
-              </Link>
-              <Link to="/cadastroDependente" className="dropdown-item">
-                Dependente
-              </Link>
+            <NavDropdown
+              title="Clientes"
+              id="basic-nav-dropdown"
+              menuVariant="dark"
+            >
+              <NavDropdown
+                title="Cadastro"
+                id="basic-nav-dropdown-cadastro"
+                className="custom-dropdown" 
+              >
+                <NavDropdown.Item>
+                  <Link to="/cadastroTitular" className="dropdown-item">
+                    Cadastro Titular
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/cadastroDependente" className="dropdown-item">
+                    Cadastro Dependente
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
             </NavDropdown>
-            <Link to="/services" className="nav-link">
-              Serviços
-            </Link>
-            <Link to="/contact" className="nav-link">
-              Contato
-            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
