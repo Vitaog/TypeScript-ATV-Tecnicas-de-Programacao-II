@@ -37,6 +37,22 @@ const NavBar = () => {
                   </Link>
                 </NavDropdown.Item>
               </NavDropdown>
+              <NavDropdown
+                title="Listar"
+                id="basic-nav-dropdown-cadastro"
+                className="custom-dropdown" 
+              >
+                <NavDropdown.Item>
+                  <Link to="/listarTitular" className="dropdown-item">
+                    Listar Titulares
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link to="/listarDependente" className="dropdown-item">
+                    Listar Dependentes
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
