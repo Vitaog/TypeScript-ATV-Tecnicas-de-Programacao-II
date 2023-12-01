@@ -31,9 +31,29 @@ const ListarDependentes = () => {
     <div>
       <NavBar />
       <div className="container">
-        <div className="card mx-auto my-5 p-3" style={{maxHeight: '850px', overflowY: 'auto' }}>
+        <div className="card mx-auto my-5 p-3" style={{ maxHeight: '850px', overflowY: 'auto' }}>
           <h1 className="display-4 text-center">Listagem de Dependentes</h1>
-          <table className="table table-striped mx-auto" style={{maxWidth: '1150px'}}>
+          <div className="col-md-3">
+            <div className="mb-3">
+              <label htmlFor="IdTitular" className="form-label">ID do Dependente:</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Pesquisar por ID Dependente"
+              />
+            </div>
+          </div>
+          <div className="col-md-3">
+            <div className="mb-3">
+              <label htmlFor="IdTitular" className="form-label">ID do Titular:</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Pesquisar por ID Titular"
+              />
+            </div>
+          </div>
+          <table className="table table-striped mx-auto" style={{ maxWidth: '1150px' }}>
             <thead>
               <tr>
                 <th>ID</th>
@@ -51,7 +71,7 @@ const ListarDependentes = () => {
                   <td>{dependente.cpf}</td>
                   <td>{dependente.telefone}</td>
                   <td>
-                  <Link
+                    <Link
                       to={{
                         pathname: `/editar-dependente/${dependente.id}`,
                         state: { dependenteData: dependente },

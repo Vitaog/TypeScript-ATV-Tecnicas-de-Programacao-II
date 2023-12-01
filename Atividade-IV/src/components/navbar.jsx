@@ -24,7 +24,7 @@ const NavBar = () => {
               <NavDropdown
                 title="Cadastro"
                 id="basic-nav-dropdown-cadastro"
-                className="custom-dropdown" 
+                className="custom-dropdown"
               >
                 <NavDropdown.Item>
                   <Link to="/cadastroTitular" className="dropdown-item">
@@ -40,7 +40,7 @@ const NavBar = () => {
               <NavDropdown
                 title="Listar"
                 id="basic-nav-dropdown-cadastro"
-                className="custom-dropdown" 
+                className="custom-dropdown"
               >
                 <NavDropdown.Item>
                   <Link to="/listarTitular" className="dropdown-item">
@@ -54,6 +54,24 @@ const NavBar = () => {
                 </NavDropdown.Item>
               </NavDropdown>
             </NavDropdown>
+            <NavDropdown title="Hospedagem" id="basic-nav-dropdown" menuVariant="dark">
+              <NavDropdown.Item>
+                <Link to="/registrarHospedagem" className="dropdown-item">
+                  Registrar Hospedagem
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/listarHospedagem" className="dropdown-item">
+                  Listar Hospedagens
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link to="/listarAcomodacao" className="dropdown-item">
+                  Listar Acomodações
+                </Link>
+              </NavDropdown.Item>
+            </NavDropdown>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

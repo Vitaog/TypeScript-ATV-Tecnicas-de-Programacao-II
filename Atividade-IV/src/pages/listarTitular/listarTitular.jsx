@@ -31,9 +31,29 @@ const ListarTitulares = () => {
     <div>
       <NavBar />
       <div className="container">
-        <div className="card mx-auto my-5 p-3" style={{maxHeight: '850px', overflowY: 'auto' }}>
+        <div className="card mx-auto my-5 p-3" style={{ maxHeight: '850px', overflowY: 'auto' }}>
           <h1 className="display-4 text-center">Listagem de Titulares</h1>
-          <table className="table table-striped mx-auto" style={{maxWidth: '1150px'}}>
+          <div className="col-md-3">
+              <div className="mb-3">
+                <label htmlFor="IdTitular" className="form-label">ID do Titular:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Pesquisar por ID titular"
+                /> 
+              </div>
+            </div>
+            <div className="col-md-3">
+              <div className="mb-3">
+                <label htmlFor="IdTitular" className="form-label">ID do Dependente:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Pesquisar por ID Dependente"
+                /> 
+              </div>
+            </div>
+          <table className="table table-striped mx-auto" style={{ maxWidth: '1150px' }}>
             <thead>
               <tr>
                 <th>ID</th>
@@ -51,7 +71,7 @@ const ListarTitulares = () => {
                   <td>{titular.cpf}</td>
                   <td>{titular.telefone}</td>
                   <td>
-                  <Link
+                    <Link
                       to={{
                         pathname: `/editar-titular/${titular.id}`,
                         state: { titularData: titular },

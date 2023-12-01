@@ -5,6 +5,7 @@ import ListarTitulares from "../pages/listarTitular/listarTitular";
 import EditarTitular from "../pages/editarTitular/editarTitular";
 import EditarDependente from "../pages/editarDependente/editarDependente";
 import ListarDependentes from "../pages/listarDependente/listarDependente";
+import ListarAcomodacao from "../pages/listarAcomodacao/listaracomodacao";
 
 
 export default [
@@ -35,5 +36,9 @@ export default [
 {
     path: "/editar-dependente/:id",
     element: <EditarDependente />
-}
+},
+{
+    path: "/listarAcomodacao",
+    element: <ListarAcomodacao/>
+},
 ];
