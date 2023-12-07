@@ -6,6 +6,8 @@ import EditarTitular from "../pages/editarTitular/editarTitular";
 import EditarDependente from "../pages/editarDependente/editarDependente";
 import ListarDependentes from "../pages/listarDependente/listarDependente";
 import ListarAcomodacao from "../pages/listarAcomodacao/listaracomodacao";
+import ListarHospedagem from "../pages/listarHospedagem/listarHospedagem";
+import RegistroHospedagem from "../pages/registroHospedagem/registroHospedagem";
 
 
 export default [
@@ -40,5 +42,13 @@ export default [
 {
     path: "/listarAcomodacao",
     element: <ListarAcomodacao/>
+},
+{
+    path: "/listarHospedagem",
+    element: <ListarHospedagem/>
+},
+{
+    path: "/registrarHospedagem",
+    element: <RegistroHospedagem/>
 },
 ];
