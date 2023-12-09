@@ -1,2 +1,5 @@
 # TypeCcript ATV Tecnicas de Programacao II
-Atividades de Técnicas de Programação II em TypeScript.
+Repositório para entrega das atividades de Técnicas de Programação II.
+
+Vitor Garcez
+Igor Pereira
